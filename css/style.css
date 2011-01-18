@@ -1,0 +1,266 @@
+* html, body {
+  height: 100%;
+}
+
+body {
+min-height: 100%;
+height: 100%;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 13px;
+line-height: 18px;
+color: #393939;
+}
+
+img { border: none; }
+a { color: #22456F; text-decoration: underline;}
+
+a:hover { text-decoration: underline; color : #000; }
+
+#wrap {
+position: relative;
+width: 95%;
+height: auto !important;
+height: 100%;
+margin: 10px auto -4em;
+  padding: 10px 10px 10px 10px;
+}
+
+.tab {
+background-color: white;
+}
+
+td {
+font-size: 12px;
+}
+
+.widget {
+border-bottom: 1px dotted #cccccc;
+margin: 0 0 1.5em;
+padding: 0 0 1.5em;
+}
+
+#header-wrapper {
+background: #393939;
+border:1px solid #cccccc;
+color: #FFFFFF;
+
+}
+#header {
+margin: 5px;
+border:1px solid #cccccc;
+padding-left: 2;
+text-align: center;
+}
+#header h1 {
+font-size: 21px;
+letter-spacing: -1px;
+}
+#header h1 a {
+color: #182535;
+text-decoration: none;
+}
+#header h1 a:hover {
+color: #000;
+text-decoration: none;
+}
+#header h2 {
+color: #aaa;
+font-size: 15px;
+font-weight: 100;
+padding: 0 0 0 11px;
+letter-spacing: -1px;
+line-height: 12px;
+}
+
+.left {
+font-size: 12px;
+margin-top: 15px;
+width: 70%;
+float: left;
+text-align: left;
+padding: 5px;
+}
+.left h2 {
+font-size: 20px;
+letter-spacing: -1px;
+font-weight: 100;
+}
+
+.right {
+margin-top: 15px;
+width: 28%;
+float: right;
+font-size: 12px;
+padding: 5px;
+}
+.right ul {
+list-style-type: square;
+padding: 5px 10px 10px 20px;
+color: #59799F;
+}
+.right h2 {
+height: 30px;
+font-size: 12px;
+color: #666;
+line-height: 30px;
+}
+.right a { text-decoration: none }
+
+#footer {
+  position: fixed;
+/*position: absolute;*/
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 28px;
+    background-color: #393939; }
+
+#footer-nav { 
+  /*position: absolute;*/
+  position: fixed;
+    left: 11px;
+    bottom: 0px;
+    color: #FFFFFF;
+    height: 18px; }
+
+#footer-nav ul,
+#footer-nav li  {
+    display: inline;
+}
+
+img {
+    /* Silly IE...  Doesn't use bicubic by default... */
+    -ms-interpolation-mode: bicubic;
+}
+
+img.resize {
+width: 800px;
+height : auto;
+cursor: url(images/ccrosshair.cur), default;
+}
+
+.resize {
+width: auto;
+height : 550px;
+}
+
+div#divInstructions { display: block; }
+div#divInstructions dl { margin-left: 1em; }
+div#divInstructions dl.top { background-color: lemonchiffon; border: 1px solid orange; padding: 1em; margin-right: 2em; font-size: 90%; border-radius: 1em; }
+div#divInstructions dt { font-weight: bolder; margin-bottom: 0.1em; }
+div#divInstructions dd { margin-bottom: 0.5em; }
+
+input, button { border: 1px solid gray; }
+
+table.gridtable {
+  font-family: verdana,arial,sans-serif;
+  font-size:12px;
+  color:#333333;
+  border-width: 1px;
+  border-color: #666666;
+  border-collapse: collapse;
+}
+table.gridtable th {
+  text-align: center;
+  border-width: 1px;
+  padding: 5.5px;
+  border-style: solid;
+  border-color: #666666;
+  background-color: #dedede;
+}
+table.gridtable td {
+  border-width: 1px;
+  padding: 5px;
+  border-style: solid;
+  border-color: #666666;
+}
+
+table.inner_gridtable {
+  font-family: verdana,arial,sans-serif;
+  font-size:12px;
+  color:#333333;
+  border-width: 1px;
+  border-color: #666666;
+  border-collapse: collapse;
+}
+table.inner_gridtable th {
+  text-align: center;
+  border-width: 1px;
+  padding: 5.5px;
+  border-style: solid;
+  border-color: #666666;
+  background-color: #dedede;
+}
+table.inner_gridtable td {
+  border-width: 1px;
+  padding: 5px;
+  border-style: none;
+  /*border-center-style: solid;*/
+  border-color: #666666;
+}
+
+#pulsar_box {
+  margin: 3px;
+  margin-bottom: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #666666;
+  float: left;
+  text-align: center;
+}
+
+#box {
+  clear: both;
+  margin-bottom: 20px;
+}
+
+#text-box {
+  width: 40%;
+  clear: both;
+  margin-bottom: 20px;
+}
+
+/*#pulsar_box:hover {
+    background-color: #393939;
+}*/
+
+.clear { /* generic container (i.e. div) for floating buttons */
+    overflow: hidden;
+    width: 100%;
+}
+
+a.button {
+    background: transparent url('../images/bg_button_a.gif') no-repeat scroll top right;
+    color: #444;
+    display: block;
+    float: left;
+    font: normal 12px arial, sans-serif;
+    height: 24px;
+    margin-right: 6px;
+    padding-right: 18px; /* sliding doors padding */
+    text-decoration: none;
+}
+
+a.button span {
+    background: transparent url('../images/bg_button_span.gif') no-repeat;
+    display: block;
+    line-height: 14px;
+    padding: 5px 0 5px 18px;
+}
+
+a.button:active {
+    background-position: bottom right;
+    color: #000;
+    outline: none; /* hide dotted outline in Firefox */
+}
+
+a.button:active span {
+    background-position: bottom left;
+    padding: 6px 0 4px 18px; /* push text down 1px */
+}
+
+
+
+
+
+
