@@ -41,13 +41,28 @@ if(array_key_exists("period", $ninfo)){
 	$smarty->assign("period_correct", $ninfo["period"]);
 }
 
+#round the period from the info file to the number of significant figures given by the student
+$period_len = 0;
+$period_round = 0.0;
+if(array_key_exists("period", $ninfo) && array_key_exists("period", $_POST)){
+	$i=0;
+	for(;$i < strlen($pperiod);$i+=1){
+		if($pperiod[$i] == ".")
+			break;
+	}
+	$i=strlen($pperiod)-$i-1;
+	$period_round = (string)(round($ninfo["period"], $i));
+}
+
+#build the display string for the students period
+#such that correct digits = green, incorrect = red, accounting for rounding
 if(array_key_exists("period", $ninfo) && array_key_exists("period", $_POST)){
 	$pcol = "<font color=\"#008000\">";
 	$i = 0;
 	for(;$i < min(strlen($ninfo["period"]), strlen($pperiod));$i+=1){
-		if($ninfo["period"][$i] != $pperiod[$i])
+		if($period_round[$i] != $pperiod[$i])
 			break;
-		$pcol = $pcol.$ninfo["period"][$i];
+		$pcol = $pcol.$pperiod[$i];
 	}
 	$pcol .= "</font>";
 	$pcol .= "<font color=\"#B22222\">";

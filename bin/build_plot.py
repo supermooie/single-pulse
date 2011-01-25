@@ -36,7 +36,7 @@ if not just_plot:
 	plot_file = out_file+".plot";
 
 	print in_file, plot_file, xstart, xend;
-	bpstr = "./bp_fast %s %s %s %s 10000" % (in_file, plot_file, xstart, xend);
+	bpstr = "./bp_fast %s %s %s %s 1000000" % (in_file, plot_file, xstart, xend);
 	#print bpstr;
 	#print os.popen(bpstr, "r").read();
 	os.system(bpstr)
