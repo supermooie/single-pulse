@@ -36,6 +36,9 @@ define('SESSION_DIR', ROOT_DIR.'session/');
 
 define('WEB_SESSION_ADDRESS', WEB_ADDRESS.'session/');
 
+// Directory where text files storing questions are found
+define('QUESTIONS_DIR', ROOT_DIR.'questions/');
+
 // Directory for binary files
 define('BIN_DIR', ROOT_DIR.'bin/');
 

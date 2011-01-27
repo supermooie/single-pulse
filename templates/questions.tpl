@@ -1,6 +1,4 @@
-{* Introductory web page for Module Two. A unique ID should be created. *}
-
-{include file="header.tpl" title="Module Three: Questions"}
+{*{include file="header.tpl" title="Module Three: Questions"}*}
 
 <script type="text/javascript">
 var cur_question = 0;
@@ -24,25 +22,6 @@ precision[{$question@index}] = 0;
 {/foreach}
 
 function checkAnswers(){
-	{*/*var correct = 0;
-	for(i=0;i<answer_len;i++){
-		//alert("here");
-		if(type[i] == "multiselect"){
-			if(document.getElementById("q"+i).r1[answer[i]].checked){
-				correct+=1;
-			}
-		}else if(type[i] == "numerical"){
-			if((parseFloat(document.getElementById("q"+i).t1.value)).toPrecision(precision[i]) == answer[i].toPrecision(precision[i])){
-				correct+=1;
-			}
-		}
-	}
-	if(correct != answer_len)
-		document.getElementById("ansBox").innerHTML = "Score: "+correct+" / "+answer_len;
-	else
-		document.getElementById("ansBox").innerHTML = "Score: <font color=\"#008800\">"+correct+" / "+answer_len + " Congratulations! </font>";
-	return false;*/*}
-
 	var correct = false;
 	if(type[cur_question] == "multiselect"){
 		if(document.getElementById("q"+cur_question).r1[answer[cur_question]].checked){
@@ -87,7 +66,7 @@ Congratulations you are now a pulsar expert.<br><br>
 
 Click here to go onwards:
 <br><br>
-<form>
+<form action="{$nextpage}">
 <input type="submit" value="Onwards">
 </form>
 </div>
@@ -123,11 +102,6 @@ Click here to go onwards:
 {/strip}
 {/foreach}
 
-{*<div id="ansBox">Score: - / {$answers|count}
-</div>
-<div id="atmBox">Attempts: 0
-</div>*}
-
 <div id="cans1" style="display: block">
 <form>
 <table>
@@ -136,4 +110,4 @@ Click here to go onwards:
 </form>
 </div>
 
-{include file="footer.tpl"}
+{*{include file="footer.tpl"}*}
