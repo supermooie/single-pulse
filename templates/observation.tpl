@@ -3,7 +3,7 @@
 {include file="header.tpl" title=${pulsar_name}}
 
 <div id="box">
-<p> Displayed below are plots of previous {$pulsar_name} individual pulse observations. Each plot should show around 10 pulses. If you cant see these pulses it is probably because the pulsar is "off" or because the pulsar is too faint to be seen above the noise level.
+<p> Displayed below are plots of previous {$pulsar_name} individual pulse observations. Each plot should show around 10 pulses. If you can not see these pulses it is probably because the pulsar is "off" or because the pulsar is too faint to be seen above the noise level.
 
 </div>
 
@@ -13,7 +13,7 @@
 
 <div id="pulsar_box">
 <table class="gridtable">
-<tr><th>{$observations[mysec].filename}</th><tr>
+<tr><th>Observation {$smarty.section.mysec.index+1}</th><tr>
 <tr><td align="center"><a href="findperiod_intro.php?id={$id}&pulsar={$pulsar_name_url}&pfname={$observations[mysec].filename|urlencode}"><img src="{$observations[mysec].profile}" /></a></td></tr>
 
 <tr>{*<td align="center">

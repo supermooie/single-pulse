@@ -1,4 +1,7 @@
 <?php
+/*
+This page provides information about how folding works and how to improve the period using folding.
+*/
 require_once("Config.php");
 require_once('Classes/Identifier.php');
 require_once('Classes/DataValidation.php');
@@ -9,6 +12,7 @@ $id = Identifier::GetId();
 
 $smarty = new Smarty();
 
+//make sure we pass pulsar details through even though this page doesn't really need them
 if(array_key_exists("pulsar", $_GET))
 	$smarty->assign("pulsar", DataValidation::removeXSS($_GET["pulsar"]));
 if(array_key_exists("id", $_GET))

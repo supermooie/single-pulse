@@ -1,4 +1,7 @@
 <?php
+/*
+This page allows students to scroll through all the detections for the pulsar they have selected.
+*/
 
 require_once('Config.php');
 require_once('Classes/Identifier.php');

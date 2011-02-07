@@ -1,5 +1,3 @@
-{* Introductory web page for Module Two. A unique ID should be created. *}
-
 {include file="header.tpl" title="Module Three: Period finder"}
 <script type="text/javascript">
 function calc_period(){
@@ -21,7 +19,7 @@ function calc_period(){
 
 <div id="box">
 <h3>Period finder: {$pulsar}</h3>
-Determine an approximate value for the period of the pulsar by selecting two pulses and then counting the number of periods between the two pulses.
+Determine an approximate value for the period of the pulsar by selecting two pulses and then counting the number of periods between the two pulses. Initially, all the data collected during the observation you selected will be displayed, you will probably need to zoom in to see the individual pulses. 
 
 <table>
 <tr>
@@ -38,36 +36,36 @@ Determine an approximate value for the period of the pulsar by selecting two pul
 <tr><td><h3>Zoom: </h3></td></tr>
 <tr><td> Select a range along the x-axis to view. Inputting both start and end times as zero will reset the view. </td></td>
 <tr><td></td><tr>
-<tr> <td>Zoom start: </td><td><input type="text" name="szoom" value="{$szoom}"></td> </tr>
-<tr> <td>Zoom end: </td><td><input type="text" name="ezoom" value="{$ezoom}"></td></tr>
+<tr> <td>Zoom start: </td><td><input type="text" name="szoom" value="{$szoom}"> </td><td>seconds</td> </tr>
+<tr> <td>Zoom end: </td><td><input type="text" name="ezoom" value="{$ezoom}"> </td><td>seconds</td></tr>
 <tr><td><input type="submit" value="Zoom"></td>{*</form>*}</tr>
 <tr><td></br></td></tr>
 <tr><td><h3>Add Pulse Positions: </h3></td></tr>
 <tr><td> Enter the information required to calculate the period. </td></td>
 <tr><td></td><tr>
 <tr>{*<form action="" method="POST">*}
-<td>First pulse position: </td><td> <input type="text" name="first_pulse" value="{$first_pulse}" id="fp"> 
+<td>First pulse position: </td><td> <input type="text" name="first_pulse" value="{$first_pulse}" id="fp"></td> <td>seconds
 {*<input type="hidden" name="second_pulse" value="{$second_pulse}">
 <input type="hidden" name="num_pulse" value="{$num_pulse}">
 <input type="hidden" name="szoom" value="{$szoom}">
 <input type="hidden" name="ezoom" value="{$ezoom}">*}
-</td><td><input type="submit" value="Save"></td>
+</td><td>{*<input type="submit" value="Save">*}</td>
 {*</form>*}</tr>
 <tr>{*<form action="" method="POST">*}
-<td>Second pulse position: </td><td> <input type="text" name="second_pulse" value="{$second_pulse}" id="sp"> 
+<td>Second pulse position: </td><td> <input type="text" name="second_pulse" value="{$second_pulse}" id="sp"></td><td> seconds
 {*<input type="hidden" name="first_pulse" value="{$first_pulse}">
 <input type="hidden" name="num_pulse" value="{$num_pulse}">
 <input type="hidden" name="szoom" value="{$szoom}">
 <input type="hidden" name="ezoom" value="{$ezoom}">*}
-</td><td><input type="submit" value="Save"></td>
+</td><td>{*<input type="submit" value="Save">*}</td>
 {*</form>*}</tr>
 <tr>{*<form action="" method="POST">*}
-<td>Number of periods: </td><td> <input type="text" name="num_pulse" value="{$num_pulse}" id="np"> 
+<td>Number of pulse periods: </td><td> <input type="text" name="num_pulse" value="{$num_pulse}" id="np"> 
 {*<input type="hidden" name="second_pulse" value="{$second_pulse}">
 <input type="hidden" name="first_pulse" value="{$first_pulse}">
 <input type="hidden" name="szoom" value="{$szoom}">
 <input type="hidden" name="ezoom" value="{$ezoom}">*}
-</td><td><input type="submit" value="Save"></td>
+</td><td>{*<input type="submit" value="Save">*}</td>
 </form></tr>
 <tr><td></br></td></tr>
 <tr><td> <h3> Pulse Positions: </h3> </td></td>
@@ -91,8 +89,8 @@ To Calculate the period you can:
 <ol>
 <li>Zoom in on a range where you can see 10-15 pulses</li>
 <li>Count the number of full periods between the left most and right most pulses you can see on the screen</li>
-<li>Enter the number of periods you measure and click the save button</li>
-<li>Zoom in on the left most pulse until you can clearly see its position on the x-axis, enter this value and save it</li>
+<li>Enter the number of periods you measure</li>
+<li>Zoom in on the left most pulse until you can clearly see its position on the x-axis. Make sure that you get the pulse position (in seconds) to at least 2 decimal places.</li>
 <li>Repeat part 4 for the right most pulse</li>
 <li>Click the "Calculate Period" button</li>
 </ol>

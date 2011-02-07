@@ -1,9 +1,7 @@
-{* Introductory web page for Module Two. A unique ID should be created. *}
-
 {include file="header.tpl" title="Module Three: Folding Introduction"}
 
 <div id="box">
-<h2>The period you calculated was: {$period}</h2>
+<h2>The period you calculated was: {$period} seconds</h2>
 <h3>Improving the period accuracy: {$pulsar}</h3>
 You have now determined an estimate for the period, however we can do better. Earlier in this module the concept of folding individual pulses to produce an average pulse profile was introduced. You might remember that the method for folding the pulses involved dividing the pulses up into time blocks with a width of the period. If the value of the period we are using is just a little bit wrong then the folded profile is going to look very wrong because the small error is compounded over hundreds or even thousands of pulses.
 
@@ -13,7 +11,7 @@ If your period from the last part of the module was sufficiently accurate you sh
 <center><img WIDTH=340 HEIGHT=260 src="images/fold_ok1.gif"><img WIDTH=340 HEIGHT=260 src="images/fold_ok2.gif"></center>
 <br/>
 
-However if you don't get a distinct pulse like in the images above then you need to go back an do the last part of the module more carefully. Make sure you check that in the last part of the module you counted the number of periods not the number of pulses between the two pulses you selected.
+However if you do not get a distinct pulse like in the images above then you need to go back an do the last part of the module more carefully. Make sure you check that in the last part of the module you counted the number of periods not the number of pulses between the two pulses you selected.
 
 A very good period should give an average pulse profile that looks something like the image below, although it will differ from pulsar to pulsar.
 

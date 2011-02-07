@@ -1,4 +1,8 @@
 <?php
+/*
+This page shows a list of pulsars available for use with this module and allows
+sudents to select a pulsar.
+*/
 
 require_once('Config.php');
 require_once('Classes/Identifier.php');

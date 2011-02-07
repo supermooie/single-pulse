@@ -1,5 +1,3 @@
-{* Introductory web page for Module Two. A unique ID should be created. *}
-
 {include file="header.tpl" title="Module Three: Find Period Introduction"}
 
 <div id="box">

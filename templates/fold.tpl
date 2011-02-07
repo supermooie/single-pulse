@@ -1,5 +1,3 @@
-{* Introductory web page for Module Two. A unique ID should be created. *}
-
 {include file="header.tpl" title="Module Three: Folding"}
 
 <h3>Improve the fold: {$pulsar}</h3>
@@ -8,10 +6,14 @@
 <tr>
 
 <td><img src="{$plot_img}"></td>
-<td><table>
+<td>
+The largest peak in this profile has a flux of: <b>{$mflux|string_format:"%.2f"}</b> <br><br>
+The period you calculated earlier was: {$init_period} seconds<br><br><table>
 
 <form action="" method="POST">
-<tr> <td>Folding Period:</td><td><input type="text" name="period" value="{$period}"></td> </tr>
+<tr> <td>Folding Period:</td><td><input type="text" name="period" value="{$period}"> seconds
+<input type="hidden" name="init_period" value="{$init_period}">
+</td> </tr>
 <tr> <td><input type="submit" value="New Period"></td></tr>
 </form>
 </table>

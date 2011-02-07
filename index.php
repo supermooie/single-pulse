@@ -1,4 +1,7 @@
 <?php
+/*
+This page contains introductory text about the module. It doesn't create and ID.
+*/
 require_once("Config.php");
 
 $smarty = new Smarty();

@@ -1,4 +1,8 @@
 <?php
+/*
+This page is the where students determine a first estimate of the period, using an averaging techique.
+They should be able to get around 3 decimal places using this page.
+*/
 require_once("Config.php");
 require_once('Classes/Identifier.php');
 require_once('Classes/DataValidation.php');
@@ -15,6 +19,8 @@ if(array_key_exists("ezoom", $_POST) && array_key_exists("szoom", $_POST)){
 	$ezoom = (double)($_POST["ezoom"]);
 }
 
+//get the information required for determining the pulse period
+//first pulse time, second pulse time, number of periods between pulses
 $first_pulse = 0;
 $second_pulse = 0;
 $num_pulse = 0;
@@ -31,6 +37,8 @@ if(array_key_exists("num_pulse", $_POST)){
 	if($num_pulse == 0)
 		$num_pulse_safe = 1;
 }
+
+//details of which pulsar and detection we are using
 if(array_key_exists("pulsar", $_GET)){
 	$pulsar_name = DataValidation::removeXSS($_GET["pulsar"]);
 }
@@ -39,6 +47,7 @@ if(array_key_exists("pfname", $_GET)){
 	$pfname = str_replace("_sm.png", ".bin", basename($pfname));
 }
 
+//make path string for new plot image
 $outfile_name = "fp".$id.".gif";
 $outfile = SESSION_DIR.$outfile_name;
 
@@ -46,10 +55,9 @@ $outfile = SESSION_DIR.$outfile_name;
 $infile = OBSERVATIONS_DIR.basename($pulsar_name)."/".$pfname;
 
 //run the image generator
-#print "cd ".BIN_DIR." && ./build_plot.py ".escapeshellarg($infile)." ".escapeshellarg($outfile)." ".escapeshellarg($szoom)." ".escapeshellarg($ezoom);
-exec("cd ".BIN_DIR." && ./build_plot.py ".escapeshellarg($infile)." ".escapeshellarg($outfile)." ".escapeshellarg($szoom)." ".escapeshellarg($ezoom));
+exec("cd ".BIN_DIR." && python build_plot.py ".escapeshellarg($infile)." ".escapeshellarg($outfile)." ".escapeshellarg($szoom)." ".escapeshellarg($ezoom));
 
-//send stuff through to the template
+//send stuff through to the smarty template
 $smarty = new Smarty();
 $smarty->assign('szoom', $szoom);
 $smarty->assign('ezoom', $ezoom);

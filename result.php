@@ -1,4 +1,13 @@
 <?php
+/*
+This page displays the results of the module.
+Things like: 
+- a folded profile
+- an animation of the folding
+- the calculated period
+- the catalog period
+- an estimate of the speed of the surface of the pulsar
+*/
 require_once("Config.php");
 require_once("Classes/Identifier.php");
 require_once("Classes/DataValidation.php");
@@ -10,6 +19,7 @@ $id = Identifier::GetId();
 
 $smarty = new Smarty();
 
+//get pulsar selection information
 if(array_key_exists("pulsar", $_GET))
 	$smarty->assign("pulsar", DataValidation::removeXSS($_GET["pulsar"]));
 if(array_key_exists("id", $_GET))
@@ -74,14 +84,77 @@ if(array_key_exists("period", $ninfo) && array_key_exists("period", $_POST)){
 
 $period = (double)($pperiod);
 
+#format the difference between students period and catalog period
+#so that it uses standard conventions
+$pdiff = abs($period - (double)$ninfo["period"]);
+$ext = "";
+if($pidff >= 1E24){
+	$ext = "Y";
+	$pdiff/=1E24;
+}else if($pdiff >= 1E21){
+	$ext = "Z";
+	$pdiff/=1E21;
+}else if($pidff >= 1E18){
+	$ext = "E";
+	$pdiff/=1E18;
+}else if($pdiff >= 1E15){
+	$ext = "P";
+	$pdiff/=1E15;
+}else if($pdiff >= 1E12){
+	$ext = "T";
+	$pdiff/=1E12;
+}else if($pdiff >= 1E9){
+	$ext = "G";
+	$pdiff/=1E9;
+}else if($pdiff >= 1E6){
+	$ext = "M";
+	$pdiff/=1E6;
+}else if($pdiff >= 1E3){
+	$ext = "k";
+	$pdiff/=1E3;
+}else if($pidff >= 1){
+	$ext = "";
+}else if($pdiff >= 0.001){
+	$ext = "m";
+	$pdiff/=0.001;
+}else if($pdiff >= 0.000001){
+	$ext = "&#956;"; //html code for mu
+	$pdiff/=0.000001;
+}else if($pdiff >= 0.000000001){
+	$ext = "n";
+	$pdiff/=0.000000001;
+}else if($pdiff >= 1E-12){
+	$ext = "p";
+	$pdiff/=1E-12;
+}else if($pdiff >= 1E-15){
+	$ext = "f";
+	$pdiff/=1E-15;
+}else if($pdiff >= 1E-18){
+	$ext = "a";
+	$pdiff/=1E-18;
+}else if($pdiff >= 1E-21){
+	$ext = "z";
+	$pdiff/=1E-21;
+}else if($pdiff >= 1E-24){
+	$ext = "y";
+	$pdiff/=1E-24;
+}
+$ext = $ext."s";
+$ext = round($pdiff)." ".$ext;
+$smarty->assign("pdiff", $ext);
+
 $outfile_name = "fpf".$id.".gif";
 $outfile = SESSION_DIR.$outfile_name;
 $plotfile = SESSION_DIR.$outfile_name.".plot";
 $infile = OBSERVATIONS_DIR.basename($pulsar_name)."/".basename($pfname);
 
-#print "./foldbin $infile $period $plotfile";
+//fold the pulsar at the students period
+//build a plot of the folded pulsar
+//make an animation of the pulsar folding using the students pulse period
 exec("cd ".BIN_DIR." && ./foldbin ".escapeshellarg($infile)." ".escapeshellarg($period)." ".escapeshellarg($plotfile));
-exec("cd ".BIN_DIR." && ./build_plot.py ".escapeshellarg($plotfile)." ".escapeshellarg($outfile)." 0 0 just_plot");
+exec("cd ".BIN_DIR." && python build_plot.py ".escapeshellarg($plotfile)." ".escapeshellarg($outfile)." 0 0 just_plot");
+exec("cd ".BIN_DIR." && ./mk_fold_animation.sh ".escapeshellarg($infile)." ".$period." 20 "."ani".$id." 2 ");
+$smarty->assign('fold_ani', WEB_SESSION_ADDRESS."ani".$id.".gif");
 $smarty->assign('plot_img', WEB_SESSION_ADDRESS.$outfile_name);
 
 $smarty->template_dir = SMARTY_TEMPLATE_DIR;
